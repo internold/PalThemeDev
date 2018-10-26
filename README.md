@@ -1,2 +1,1 @@
-#This is a Test
-This is a Test
+Theme Settings of my Shopify Client
