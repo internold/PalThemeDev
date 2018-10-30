@@ -25,6 +25,11 @@ window.Modals = (function() {
   }
 
   Modal.prototype.init = function() {
+    var $openBtn = $(this.config.open);
+
+    // Add aria controls
+    $openBtn.attr('aria-expanded', 'false');
+
     $(this.config.open).on('click', $.proxy(this.open, this));
     this.$modal.find(this.config.close).on('click', $.proxy(this.close, this));
   };
@@ -69,6 +74,10 @@ window.Modals = (function() {
       namespace: 'modal_focus'
     });
 
+    if (this.$activeSource && this.$activeSource.attr('aria-expanded')) {
+      this.$activeSource.attr('aria-expanded', 'true');
+    }
+
     this.bindEvents();
   };
 
@@ -91,6 +100,10 @@ window.Modals = (function() {
       $container: this.$modal,
       namespace: 'modal_focus'
     });
+
+    if (this.$activeSource && this.$activeSource.attr('aria-expanded')) {
+      this.$activeSource.attr('aria-expanded', 'false').focus();
+    }
 
     this.unbindEvents();
   };

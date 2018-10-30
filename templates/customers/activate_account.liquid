@@ -9,11 +9,7 @@
       <div class="form-vertical">
         {% form 'activate_customer_password' %}
 
-          {%- if form.errors -%}
-            <div class="form-message form-message--error">
-              {{ form.errors | default_errors }}
-            </div>
-          {%- endif -%}
+          {{ form.errors | default_errors }}
 
           <label for="CustomerPassword" class="label--hidden">{{ 'customer.activate_account.password' | t }}</label>
           <input type="password" value="" name="customer[password]" id="CustomerPassword" placeholder="{{ 'customer.activate_account.password' | t }}">

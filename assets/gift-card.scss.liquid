@@ -2,16 +2,13 @@
 /*============================================================================
   Grid Breakpoints and Class Names
     - Do not change the variable names
-    - $grid-narrowscreen is based on a Shopify breakpoint for checkout buttons
 ==============================================================================*/
-$grid-narrowscreen: 500px;
 $grid-medium: 750px;
 $grid-large: 990px;
 $grid-widescreen: 1400px;
 $grid-gutter: 30px;
 $grid-gutter-mobile: 22px;
 
-$narrowscreen: 'narrowscreen';
 $small: 'small';
 $medium: 'medium';
 $medium-down: 'medium-down';
@@ -33,10 +30,11 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 
 // Text colors
 $color-text: {{ settings.color_text }};
-$color-text-shadow: rgba(0,0,0,0.4);
+$color-text-shadow: rgba(0, 0, 0, 0.1);
 $color-body-text: {{ settings.color_body_text }};
 $color-sale-text: {{ settings.color_sale_text }};
-$color-small-button-text-border: {{ settings.color_small_button_text_border }};
+$color-small-button: {{ settings.color_small_button }};
+$color-small-button-text: {{ settings.color_small_button_text }};
 $color-text-field: {{ settings.color_text_field }};
 $color-text-field-text: {{ settings.color_text_field_text }};
 $color-navigation-text: {{ settings.color_text }};
@@ -44,13 +42,6 @@ $color-navigation-text: {{ settings.color_text }};
 // Button colors
 $color-btn-primary: {{ settings.color_button }};
 $color-btn-primary-text: {{ settings.color_button_text }};
-
-// Hover and focus states
-$color-text-focus: adaptiveColor({{ settings.color_text }}, {{ settings.color_text | color_brightness }});
-$color-overlay-text-focus: adaptiveColor({{ settings.color_image_overlay_text }}, {{ settings.color_image_overlay_text | color_brightness }});
-$color-btn-primary-focus: adaptiveColor({{ settings.color_button }}, {{ settings.color_button | color_brightness }});
-$color-btn-social-focus: adaptiveColor({{ settings.color_borders }}, {{ settings.color_borders | color_brightness }});
-$color-small-button-text-border-focus: adaptiveColor({{ settings.color_small_button_text_border }}, {{ settings.color_small_button_text_border | color_brightness }});
 
 // Link buttons and secondary cta
 $color-link: $color-body-text;
@@ -68,28 +59,15 @@ $color-overlay-title-text: {{ settings.color_image_overlay_text }};
 $color-image-overlay: {{ settings.color_image_overlay }};
 $opacity-image-overlay: {{ settings.image_overlay_opacity | divided_by: 100.00 }};
 
-{%- comment -%}
-  Based on the image overlay opacity, either lighten or darken the image on hover
-{%- endcomment -%}
-{% assign image_overlay_opacity = settings.image_overlay_opacity | divided_by: 100.00 %};
-
-{% if image_overlay_opacity > 0.85 %}
-  {% assign image_overlay_opacity_hover = image_overlay_opacity | minus: 0.3 %};
-{% else %}
-  {% assign image_overlay_opacity_hover = image_overlay_opacity | plus: 0.4 %};
-{% endif %}
-$hover-overlay-opacity: {{ image_overlay_opacity_hover | at_most: 1 }};
-
 // Border colors
 $color-border: {{ settings.color_borders }};
-$color-border-form: {{ settings.color_text_field_border }};
 
 // Helper colors for form error states
 $color-disabled: #f4f4f4;
 $color-disabled-border: #f4f4f4;
 $color-error: #d20000;
 $color-error-bg: #fff8f8;
-$color-success: #1F873D;
+$color-success: #19a340;
 $color-success-bg: #f8fff9;
 
 // Forms
@@ -115,14 +93,6 @@ $section-spacing: 55px;
 $section-spacing-small: 35px;
 $border-radius: 2px;
 
-/*================ Footer Variables ================*/
-$footer-spacing-extra-small: 5px;
-$footer-spacing-small: 15px;
-$footer-wrapper-spacing: 18px;
-$footer-hr-bottom-spacing: 20px;
-$footer-spacing-medium: 25px;
-$footer-spacing-large: 45px;
-
 /*================ Z-Index ================*/
 $z-index-dropdown : 7;
 $z-index-sub-nav: 8;
@@ -136,51 +106,48 @@ $svg-select-icon: #{'{{ "ico-select.svg" | asset_url }}'};
 /*================ Drawers ================*/
 $transition-drawer: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
 
+/*================ Hero ================*/
+$color-background-hero-button: #fff;
+$color-text-hero-button: #000;
+
 /*================ Hero Slider ================*/
 $color-slideshow-arrows: #000;
 $color-slideshow-dots: #fff;
 
+$transition-text-slideshow: all 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+$transition-image-slideshow: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+
 /*================ Typography ================*/
-
-{% assign header_font = settings.type_header_font %}
-{% assign base_font = settings.type_base_font %}
-
-{{ header_font | font_face }}
-{{ base_font | font_face }}
-
-{% if settings.type_bold_product_titles %}
-  {%- assign header_font_bold = header_font | font_modify: 'weight', 'bolder' -%}
+{% if settings.type_base_family contains 'Google' %}
+  {% assign type_base_parts = settings.type_base_family | split: '_' %}
+  {% assign type_base_name = type_base_parts[1] %}
+  {% capture base_family %}"{{ type_base_name | split: ':' | first | replace: '+', ' ' }}"{% if type_base_parts.last == 'serif' %}, serif {% else %}, "HelveticaNeue", "Helvetica Neue", sans-serif{% endif %}{% endcapture %}
+{% else %}
+  {% assign base_family = settings.type_base_family %}
 {% endif %}
 
-{%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
-{%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
-{%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
-{%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
+{% if settings.type_header_family contains 'Google' %}
+  {% assign type_header_parts = settings.type_header_family | split: '_' %}
+  {% assign type_header_name = type_header_parts[1] %}
+  {% capture header_family %}"{{ type_header_name | split: ':' | first | replace: '+', ' ' }}"{% if type_header_parts.last == 'serif' %}, serif {% else %}, "HelveticaNeue", "Helvetica Neue", sans-serif{% endif %}{% endcapture %}
+  {% assign header_weight = type_header_parts[2] | split: ',' %}
+{% else %}
+  {% assign header_family = settings.type_header_family %}
+  {% assign header_weight = 400 %}
+{% endif %}
 
-{{ header_font_bold | font_face }}
-{{ base_font_bold | font_face }}
-{{ base_font_bolder | font_face }}
-{{ base_font_italic | font_face }}
-{{ base_font_bold_italic | font_face }}
+$font-weight-normal: 400;
+$font-weight-bold: 700;
 
-$font-weight-body--bold: {{ base_font_bold.weight | default: 700 }};
-$font-weight-body--bolder: {{ base_font_bolder.weight | default: 700 }};
-$font-weight-header--bold: {{ header_font_bold.weight | default: 700 }};
-
-$font-stack-header: {{ header_font.family }}, {{ header_font.fallback_families }};
-$font-style-header: {{ header_font.style }};
-$font-weight-header: {{ header_font.weight }};
-
-$font-stack-body: {{ base_font.family }}, {{ base_font.fallback_families }};
-$font-style-body: {{ base_font.style }};
-$font-weight-body: {{ base_font.weight }};
-
-$font-size-header: {{ settings.type_header_base_size }} * 1px;
+$font-stack-header: {{ header_family }};
+$font-weight-header: {{ header_weight }};
+$font-size-header: {{ settings.type_header_base_size }};
 $font-bold-titles: {{ settings.type_bold_product_titles }};
 
-$font-size-base: {{ settings.type_base_size }}px; // Henceforth known as 1em
+$font-stack-body: {{ base_family }};
+$font-size-base: {{ settings.type_base_size }}; // Henseforth known as 1em
 
-$font-stack-cart-notification: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-stack-cart-notification: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 $font-size-mobile-input: 16px; // min 16px to prevent zooming
 
@@ -193,7 +160,6 @@ $color-giftcard-small-text: #b3b3b3;
 $color-giftcard-shadow: rgba(0, 0, 0, 0.1);
 $color-giftcard-print-bg: #fff;
 $color-giftcard-print: #000;
-$color-giftcard-bg: #e95e61;
 
 /*================ Z-index ================*/
 $z-index-giftcard-image: 2;
@@ -257,7 +223,7 @@ $z-index-giftcard-code: 5;
 }
 
 .giftcard-wrapper {
-  max-width: 31rem;
+  max-width: 488px;
   margin: 0 auto;
 }
 
@@ -273,8 +239,6 @@ $z-index-giftcard-code: 5;
 .giftcard__wrap {
   position: relative;
   margin: ($gutter-site / 2) ($gutter-site / 2) $gutter-site;
-  background-color: $color-giftcard-bg;
-  border-radius: 10px;
 
   img {
     position: relative;
@@ -308,12 +272,11 @@ $z-index-giftcard-code: 5;
 
 /*================ Gift card code ================*/
 .giftcard__code {
-  position: relative;
+  position: absolute;
+  bottom: 20px;
   text-align: center;
-  width: 90%;
+  width: 100%;
   z-index: $z-index-giftcard-code;
-  margin: -70px auto 0px auto;
-  padding: 0 0 18px 0;
 }
 
 .giftcard__code--medium {
@@ -330,20 +293,20 @@ $z-index-giftcard-code: 5;
   background-color: $color-giftcard-light;
   padding: 0.5em;
   border-radius: 4px;
+  max-width: 450px;
   -webkit-box-shadow: 0 0 0 1px $color-giftcard-shadow;
   box-shadow: 0 0 0 1px $color-giftcard-shadow;
 }
 
 .giftcard__code__text {
+  font-weight: 400;
   font-size: 1.875em;
   text-transform: uppercase;
-  border: 1px dashed $color-border-form;
+  border: 1px dashed $color-border;
   padding: 0.4em 0.5em;
   display: inline-block;
   vertical-align: baseline;
   line-height: 1;
-  text-align: center;
-  width: 100%;
 
   &.disabled {
     color: $color-giftcard-disabled;
@@ -410,6 +373,7 @@ $z-index-giftcard-code: 5;
   background-color: $color-giftcard-tooltip-fallback;
   background-color: $color-giftcard-tooltip;
   min-height: 14px;
+  font-weight: 400;
   font-size: 12px;
   text-decoration: none;
   line-height: 16px;
@@ -423,14 +387,6 @@ $z-index-giftcard-code: 5;
     color: $color-giftcard-small-text;
     font-size: 0.875em;
   }
-}
-
-.giftcard-action-list {
-  text-align: center;
-}
-
-.giftcard-action-list__item {
-  margin: 0 0 ($section-spacing-small / 1.8);
 }
 
 /*================ QR code (print only) ================*/
@@ -498,8 +454,5 @@ $z-index-giftcard-code: 5;
 
   .print-link {
     display: none;
-  }
-  .giftcard__code {
-    margin-top: -90px;
   }
 }

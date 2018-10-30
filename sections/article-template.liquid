@@ -1,80 +1,103 @@
-<div class="section-header text-center">
-  <h1 class="article__title">{{ article.title }}</h1>
-  {% if section.settings.blog_show_author %}
-    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-  {% endif %}
+{% assign sidebar = section.settings.sidebar_pos %}
+<!-- BANNER -->
+<section class="banner-section" style="background:url({{ section.settings.blog_banner | img_url:'1920x320' }}) no-repeat; background-size: cover;">
+  <div class="container">
+    <div class="banner">
+      <h1>{{ page_title }}</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li>{{ page_title }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  {% if section.settings.blog_show_date %}
-    <span class="article__date">
-      {{ article.published_at | time_tag: format: 'month_day_year' }}
-    </span>
-  {% endif %}
-</div>
-
-<div class="rte">
-  {{ article.content }}
-</div>
-
-{% if section.settings.show_share_buttons %}
-  {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-{% endif %}
-
-
+<!-- BLOGS -->
+<section class="blog-section">
+  <div class="container">
+    <div class="row">
+      <div class="blog">
+        {% unless sidebar == 'none' %}
+        <div class="col-lg-3 col-md-4 col-xs-12 {% if sidebar == 'right' %}float-xs-right{% else %}float-xs-left{% endif %}">
+        {% include 'blog-sidebar' %}
+        </div>
+        {% endunless %}
+        <div class="{% if sidebar == 'none' %}col-lg-12 col-md-12{% else %}col-lg-9 col-md-8{% endif %} col-xs-12">
+          <div class="blog-part {% if sidebar == 'right' %}pr-25{% else %}pl-25{% endif %}">
+            <div class="blog-description">
+              <figure><img src="{{ article.image | img_url: '850x460'}}" alt="{{ article.title }}"></figure>
+              <div class="blog-wrap">
+                <h4>{{ article.title }}</h4>
+                <p>
+                  {% if section.settings.blog_show_date %}
+                  <span>{{ article.published_at | date: "%d %b %Y" }}</span>
+                  {% endif %}
+                  {% if section.settings.blog_show_author %}
+                  <span>{{ article.author }}</span>
+                  {% endif %}
+                </p>
+              </div>
+              <div itemprop="articleBody">
+                {{ article.content }}
+              </div>
+            </div>
+            {% if section.settings.show_share_buttons %}
+            {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% schema %}
-{
-  "name": {
-    "de": "Posts",
-    "en": "Posts",
-    "es": "Publicaciones",
-    "fr": "Articles",
-    "it": "Articoli",
-    "ja": "投稿",
-    "pt-BR": "Posts"
-  },
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "blog_show_author",
-      "label": {
-        "de": "Autor anzeigen",
-        "en": "Show author",
-        "es": "Mostrar autor",
-        "fr": "Afficher l'auteur",
-        "it": "Mostra autore",
-        "ja": "執筆者を表示する",
-        "pt-BR": "Exibir autor(a)"
+  {
+    "name": "Posts",
+    "settings": [
+	  {
+        "type": "image_picker",
+        "id": "blog_banner",
+        "label": "Banner"
+      },	 
+      {
+        "type": "select",
+        "id": "sidebar_pos",
+        "label": "Sidebar position",
+        "default": "right",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ]
+      },	
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author",
+        "default": true
       },
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "blog_show_date",
-      "label": {
-        "de": "Datum anzeigen",
-        "en": "Show date",
-        "es": "Mostrar fecha",
-        "fr": "Afficher la date",
-        "it": "Mostra data",
-        "ja": "日付を表示する",
-        "pt-BR": "Exibir data"
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
       },
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_share_buttons",
-      "label": {
-        "de": "Buttons für Social Media anzeigen",
-        "en": "Show social sharing buttons",
-        "es": "Mostrar botones para compartir en redes sociales",
-        "fr": "Afficher les boutons de partage sur les médias sociaux",
-        "it": "Mostra i pulsanti per la condivisione sui social",
-        "ja": "ソーシャル共有ボタンを表示する",
-        "pt-BR": "Exibir botões de compartilhamento em redes sociais"
-      },
-      "default": true
-    }
-  ]
-}
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
 {% endschema %}

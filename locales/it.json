@@ -2,13 +2,7 @@
   "general": {
     "accessibility": {
       "skip_to_content": "Vai direttamente ai contenuti",
-      "close_modal": "Chiudi",
-      "link_messages": {
-        "new_window": "Apre in una nuova finestra.",
-        "external": "Apre un sito esterno.",
-        "new_window_and_external": "Apre un sito esterno in una nuova finestra."
-      },
-      "refresh_page": "scegliendo una selezione si ottiene un aggiornamento completo della pagina"
+      "close_modal": "Chiudi (esc)"
     },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",
@@ -20,9 +14,9 @@
       "link": "Continua lo shopping"
     },
     "pagination": {
-      "previous": "Pagina precedente",
-      "next": "Pagina successiva",
-      "current_page": "Pagina {{ current }} di {{ total }}"
+      "previous": "Precedente",
+      "next": "Prossimo",
+      "current_page": "Pagina {{current}} di {{total}}"
     },
     "password_page": {
       "opening_soon": "Prossima apertura",
@@ -47,8 +41,7 @@
       }
     },
     "search": {
-      "no_results_html": "Si prega di provare un termine di ricerca diverso o tornare alla <a href=\"\/\">homepage<\/a>.",
-      "empty_search_message": "Il campo di ricerca non può essere vuoto",
+      "no_results_html": "La tua ricerca di \"{{ terms }}\" non ha prodotto risultati.",
       "results_with_count": {
         "one": "{{ count }} risultato per \"{{ terms }}\"",
         "other": "{{ count }} risultati per \"{{ terms }}\""
@@ -56,11 +49,7 @@
       "title": "Cerca nel nostro sito",
       "placeholder": "Cerca",
       "submit": "Invia",
-      "close": "Chiudi ricerca",
-      "heading": {
-        "one": "Risultato della ricerca",
-        "other": "Risultati di ricerca"
-      }
+      "close": "Chiudi ricerca"
     },
     "newsletter_form": {
       "newsletter_email": "Iscriviti alla nostra mailing list",
@@ -70,13 +59,7 @@
     },
     "filters": {
       "show_more": "Mostra di Più",
-      "show_less": "Mostra di meno"
-    },
-    "payment": {
-      "method": "Metodi di pagamento"
-    },
-    "currency": {
-      "dropdown_label": "Valuta"
+      "show_less": "Mostra di Meno"
     }
   },
   "sections": {
@@ -84,33 +67,25 @@
       "next_slide": "Slide successiva",
       "previous_slide": "Slide Precedente",
       "pause_slideshow": "Metti in pausa",
-      "rotate_slideshow": "Avvia slideshow",
-      "load_slide": "Carica slide {{ slide_number }}",
-      "navigation_instructions": "Usa le frecce sinistra\/destra per navigare nella presentazione o scorri a sinistra\/destra se stai utilizzando un dispositivo mobile"
-    },
-    "featured_product": {
-      "title": "Prodotto presentato",
-      "gallery_thumbnail_alt": "Carica l'immagine nel visualizzatore di Gallery, {{ imageAlt }}"
+      "play_slideshow": "Avvia slideshow",
+      "play_video": "Play video",
+      "close_video": "Chiudi il video"
     },
     "map": {
       "address_error": "Errore durante la ricerca dell'indirizzo",
       "address_no_results": "La ricerca non ha prodotto alcun risultato per quell’indirizzo",
       "address_query_limit_html": "Hai superato il limite di utilizzo dell'API di Google. Considera l’aggiornamento a un <a href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\">Piano Premium<\/a>.",
-      "auth_error_html": "Si è verificato un problema di autenticazione con il tuo account di Google Maps.",
-      "section_heading": "Posizione"
+      "auth_error_html": "Si è verificato un problema di autenticazione con il tuo account di Google Maps."
     }
   },
   "blogs": {
     "article": {
       "view_all": "Visualizza tutto",
-      "view_all_blogs": "Visualizza tutti gli articoli",
       "all_topics": "Tutti gli argomenti",
       "by_author": "di {{ author }}",
       "posted_in": "Pubblicato in",
       "read_more": "Leggi di più",
-      "read_more_title": "Leggi di più: {{ title }}",
-      "back_to_blog": "Torna a {{ title }}",
-      "tags": "Tag"
+      "back_to_blog": "Torna a {{ title }}"
     },
     "comments": {
       "title": "Lascia un commento",
@@ -121,7 +96,6 @@
       "moderated": "Si prega di notare che i commenti sono soggetti ad approvazione prima di essere pubblicati",
       "success_moderated": "Il tuo commento è stato pubblicato. Lo pubblicheremo fra poco, il nostro blog è soggetto a moderazione.",
       "success": "Il tuo commento è stato pubblicato! Grazie!",
-      "unapproved": "L'indirizzo email fornito non è approvato per la pubblicazione di commenti.",
       "comments_with_count": {
         "one": "{{ count }} commento",
         "other": "{{ count }} commenti"
@@ -135,10 +109,7 @@
       "remove": "Rimuovi",
       "subtotal": "Totale parziale",
       "savings": "Stai risparmiando",
-      "taxes_and_shipping_at_checkout": "Tasse e spese di spedizione calcolate al momento del pagamento",
-      "taxes_and_shipping_policy_at_checkout_html": "Tasse e <a href=\"{{ link }}\">spese di spedizione<\/a> calcolate al momento del pagamento",
-      "taxes_included_but_shipping_at_checkout": "Tasse incluse e spese di spedizione calcolate al momento del pagamento",
-      "taxes_included_and_shipping_policy_html": "Tasse incluse. <a href=\"{{ link }}\">Spedizione<\/a> calcolata al momento del pagamento.",
+      "shipping_at_checkout": "Spedizione e tasse calcolate in fase di check-out",
       "update": "Aggiornamento",
       "checkout": "Check-out",
       "empty": "Il tuo carrello è attualmente vuoto.",
@@ -157,16 +128,14 @@
   "collections": {
     "general": {
       "view_all": "Visualizza tutto",
-      "view_all_label": "Visualizza tutti i prodotti della collezione {{ collection_name }}",
       "no_matches": "Spiacenti, non ci sono prodotti in questa collezione",
       "items_with_count": {
         "one": "{{ count }} prodotto",
         "other": "{{ count }} prodotti"
-      },
-      "collection_label": "Collezione"
+      }
     },
     "sorting": {
-      "title": "Ordina per",
+      "title": "Elenca",
       "featured": "In primo piano",
       "best_selling": "Bestseller",
       "az": "In ordine alfabetico, A - Z",
@@ -177,7 +146,7 @@
       "date_ascending": "Data, dal più vecchio al più recente"
     },
     "filters": {
-      "title_tags": "Filtra per",
+      "title_tags": "Filtra",
       "all_tags": "Tutti i prodotti"
     }
   },
@@ -188,8 +157,7 @@
       "phone": "Numero di telefono",
       "message": "Messaggio",
       "submit": "Invia",
-      "post_success": "Grazie per averci contattato. Risponderemo al più presto possibile.",
-      "error_heading": "Si prega di regolare il seguente:"
+      "post_success": "Grazie per averci contattato. Risponderemo al più presto possibile."
     }
   },
   "customer": {
@@ -307,9 +275,9 @@
   "layout": {
     "navigation": {
       "search": "Cerca",
+      "toggle": "espandi\/comprimi",
       "expand": "espandi",
-      "collapse": "comprimi",
-      "menu": "Menu"
+      "collapse": "comprimi"
     },
     "cart": {
       "title": "Carrello",
@@ -334,21 +302,15 @@
       "sold_out": "Esaurito",
       "unavailable": "Non disponibile",
       "on_sale": "In Offerta",
-      "sale_price": "Prezzo scontato",
       "quantity": "Quantità",
       "add_to_cart": "Aggiungi al carrello",
-      "back_to_collection": "Torna a {{ title }}",
-      "vendor": "Venditore",
-      "quantity_minimum_message": "La quantità deve essere 1 o più",
-      "include_taxes": "Tasse incluse.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Spedizione<\/a> calcolata al momento del pagamento."
+      "back_to_collection": "Torna a {{ title }}"
     }
   },
   "gift_cards": {
     "issued": {
       "title_html": "Ecco il tuo {{ value }} buono regalo per {{ shop }}!",
       "subtext": "Il tuo buono regalo",
-      "gift_card_code": "codice della carta regalo",
       "disabled": "Disabilitato",
       "expired": "Scaduto il {{ expiry }}",
       "active": "Scade il {{ expiry }}",
@@ -356,8 +318,7 @@
       "shop_link": "Inizia a fare shopping",
       "print": "Stampa questo buono regalo",
       "remaining_html": "{{ balance }} rimasti",
-      "add_to_apple_wallet": "Aggiungi a Apple Wallet",
-      "qr_image_alt": "Codice QR: scansiona per riscattare la carta regalo"
+      "add_to_apple_wallet": "Aggiungi a Apple Wallet"
     }
   },
   "date_formats": {

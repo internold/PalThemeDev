@@ -2,13 +2,7 @@
   "general": {
     "accessibility": {
       "skip_to_content": "Skip to content",
-      "close_modal": "Close (esc)",
-      "link_messages": {
-        "new_window": "Opens in a new window.",
-        "external": "Opens external website.",
-        "new_window_and_external": "Opens external website in a new window."
-      },
-      "refresh_page": "choosing a selection results in a full page refresh"
+      "close_modal": "Close (esc)"
     },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",
@@ -20,8 +14,8 @@
       "link": "Continue shopping"
     },
     "pagination": {
-      "previous": "Previous page",
-      "next": "Next page",
+      "previous": "Previous",
+      "next": "Next",
       "current_page": "Page {{ current }} of {{ total }}"
     },
     "password_page": {
@@ -47,8 +41,7 @@
       }
     },
     "search": {
-      "no_results_html": "Please try a different search term or go back to the <a href=\"\/\">homepage<\/a>.",
-      "empty_search_message": "Search field cannot be empty",
+      "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",
       "results_with_count": {
         "one": "{{ count }} result for \"{{ terms }}\"",
         "other": "{{ count }} results for \"{{ terms }}\""
@@ -56,14 +49,10 @@
       "title": "Search our site",
       "placeholder": "Search",
       "submit": "Submit",
-      "close": "Close search",
-      "heading": {
-        "one": "Search result",
-        "other": "Search results"
-      }
+      "close": "Close search"
     },
     "newsletter_form": {
-      "newsletter_email": "Subscribe to our mailing list",
+      "newsletter_email": "Join our mailing list",
       "email_placeholder": "Email address",
       "confirmation": "Thanks for subscribing",
       "submit": "Subscribe"
@@ -71,12 +60,6 @@
     "filters": {
       "show_more": "Show More",
       "show_less": "Show Less"
-    },
-    "payment": {
-      "method": "Payment methods"
-    },
-    "currency": {
-      "dropdown_label": "Currency"
     }
   },
   "sections": {
@@ -84,33 +67,25 @@
       "next_slide": "Next slide",
       "previous_slide": "Previous slide",
       "pause_slideshow": "Pause slideshow",
-      "rotate_slideshow": "Play slideshow",
-      "load_slide": "Load slide {{ slide_number }}",
-      "navigation_instructions": "Use left\/right arrows to navigate the slideshow or swipe left\/right if using a mobile device"
-    },
-    "featured_product": {
-      "title": "Featured product",
-      "gallery_thumbnail_alt": "Load image into Gallery viewer, {{ imageAlt }}"
+      "play_slideshow": "Play slideshow",
+      "play_video": "Play video",
+      "close_video": "Close video"
     },
     "map": {
       "address_error": "Error looking up that address",
       "address_no_results": "No results for that address",
       "address_query_limit_html": "You have exceeded the Google API usage limit. Consider upgrading to a <a href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\">Premium Plan<\/a>.",
-      "auth_error_html": "There was a problem authenticating your Google Maps account.",
-      "section_heading": "Location"
+      "auth_error_html": "There was a problem authenticating your Google Maps account."
     }
   },
   "blogs": {
     "article": {
       "view_all": "View all",
-      "view_all_blogs": "View all blogs",
       "all_topics": "All topics",
       "by_author": "by {{ author }}",
       "posted_in": "Posted in",
       "read_more": "Read more",
-      "read_more_title": "Read more: {{ title }}",
-      "back_to_blog": "Back to {{ title }}",
-      "tags": "Tags"
+      "back_to_blog": "Back to {{ title }}"
     },
     "comments": {
       "title": "Leave a comment",
@@ -121,7 +96,6 @@
       "moderated": "Please note, comments must be approved before they are published",
       "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
       "success": "Your comment was posted successfully! Thank you!",
-      "unapproved": "The email address provided is not approved for posting comments.",
       "comments_with_count": {
         "one": "{{ count }} comment",
         "other": "{{ count }} comments"
@@ -135,10 +109,7 @@
       "remove": "Remove",
       "subtotal": "Subtotal",
       "savings": "You're saving",
-      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
-      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout",
-      "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
-      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping<\/a> calculated at checkout.",
+      "shipping_at_checkout": "Shipping & taxes calculated at checkout",
       "update": "Update",
       "checkout": "Check out",
       "empty": "Your cart is currently empty.",
@@ -157,16 +128,14 @@
   "collections": {
     "general": {
       "view_all": "View all",
-      "view_all_label": "View all products in the {{ collection_name }} collection",
       "no_matches": "Sorry, there are no products in this collection",
       "items_with_count": {
         "one": "{{ count }} product",
         "other": "{{ count }} products"
-      },
-      "collection_label": "Collection"
+      }
     },
     "sorting": {
-      "title": "Sort by",
+      "title": "Sort",
       "featured": "Featured",
       "best_selling": "Best Selling",
       "az": "Alphabetically, A-Z",
@@ -177,7 +146,7 @@
       "date_ascending": "Date, old to new"
     },
     "filters": {
-      "title_tags": "Filter by",
+      "title_tags": "Filter",
       "all_tags": "All products"
     }
   },
@@ -188,8 +157,7 @@
       "phone": "Phone Number",
       "message": "Message",
       "submit": "Send",
-      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-      "error_heading": "Please adjust the following:"
+      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible."
     }
   },
   "customer": {
@@ -307,9 +275,9 @@
   "layout": {
     "navigation": {
       "search": "Search",
+      "toggle": "expand\/collapse",
       "expand": "expand",
-      "collapse": "collapse",
-      "menu": "Menu"
+      "collapse": "collapse"
     },
     "cart": {
       "title": "Cart",
@@ -334,21 +302,15 @@
       "sold_out": "Sold out",
       "unavailable": "Unavailable",
       "on_sale": "Sale",
-      "sale_price": "Sale price",
       "quantity": "Quantity",
       "add_to_cart": "Add to cart",
-      "back_to_collection": "Back to {{ title }}",
-      "vendor": "Vendor",
-      "quantity_minimum_message": "Quantity must be 1 or more",
-      "include_taxes": "Tax included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping<\/a> calculated at checkout."
+      "back_to_collection": "Back to {{ title }}"
     }
   },
   "gift_cards": {
     "issued": {
       "title_html": "Here's your {{ value }} gift card for {{ shop }}!",
       "subtext": "Your gift card",
-      "gift_card_code": "Gift card code",
       "disabled": "Disabled",
       "expired": "Expired on {{ expiry }}",
       "active": "Expires on {{ expiry }}",
@@ -356,8 +318,7 @@
       "shop_link": "Start shopping",
       "print": "Print this gift card",
       "remaining_html": "{{ balance }} left",
-      "add_to_apple_wallet": "Add to Apple Wallet",
-      "qr_image_alt": "QR code — scan to redeem gift card"
+      "add_to_apple_wallet": "Add to Apple Wallet"
     }
   },
   "date_formats": {

@@ -4,8 +4,8 @@
 {%- assign formatted_initial_value_stripped = formatted_initial_value | strip_html -%}
 
 <header class="giftcard__header text-center" role="banner">
-  <div class="site-header__logo h1 text-center">
-    <a href="{{ shop.url }}" class="site-header__link site-header__logo-link">{{ shop.name }}</a>
+  <div class="site-header__logo h1 text-center" itemscope itemtype="http://schema.org/Organization">
+    <a href="{{ shop.url }}" class="site-header__link site-header__logo-link" itemprop="url">{{ shop.name }}</a>
   </div>
 
   <h1>{{ 'gift_cards.issued.subtext' | t }}</h1>
@@ -37,14 +37,9 @@
       </div>
 
       {%- assign code_size = gift_card.code | format_code | size -%}
-      <div class="giftcard__code">
+      <div class="giftcard__code{% if code_size <= 25 %} giftcard__code--large{% elsif code_size > 25 and code_size <= 30 %} giftcard__code--medium{% else %} giftcard__code--small{% endif %}" onclick="selectText('GiftCardDigits');">
         <div class="giftcard__code__inner">
-          <input type="text"
-            class="giftcard__code__text{% if gift_card.expired or gift_card.enabled != true %} disabled{% endif %}"
-            id="GiftCardDigits"
-            value="{{ gift_card.code | format_code }}"
-            aria-label="{{ 'gift_cards.issued.gift_card_code' | t }}"
-            readonly />
+          <strong class="giftcard__code__text {% if gift_card.expired or gift_card.enabled != true %} disabled{% endif %}" id="GiftCardDigits">{{ gift_card.code | format_code }}</strong>
         </div>
       </div>
     </div>
@@ -55,29 +50,25 @@
 
     <div id="QrCode" class="giftcard__qr-code" data-identifier="{{ gift_card.qr_identifier }}"></div>
 
-    <ul class="giftcard-action-list text-center">
-      <li class="giftcard-action-list__item">
-        <a href="{{ shop.url }}"
-          class="btn"
-          target="_blank"
-          rel="noopener"
-          aria-describedby="a11y-new-window-message">
-            {{ 'gift_cards.issued.shop_link' | t }}
-            {% include 'icon-arrow-right' %}
+    <div class="text-center">
+      <p>
+        <a href="{{ shop.url }}" class="btn" target="_blank">
+          {{ 'gift_cards.issued.shop_link' | t }}
+          {% include 'icon-arrow-right' %}
         </a>
-      </li>
-      <li>
+      </p>
+      <p>
         <button type="button" class="btn btn--secondary print-link" onclick="window.print();">
           {{ 'gift_cards.issued.print' | t }}
         </button>
-      </li>
+      </p>
       {% if gift_card.pass_url %}
-        <li>
+        <p>
           <a class="giftcard__apple-wallet" href="{{ gift_card.pass_url }}">
             <img class="giftcard__apple-wallet-image" src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="120" height="40" alt="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}">
           </a>
-        </li>
+        </p>
       {% endif %}
-    </ul>
+    </div>
   </main>
 </div>

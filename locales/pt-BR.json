@@ -2,13 +2,7 @@
   "general": {
     "accessibility": {
       "skip_to_content": "Pular para o conteúdo",
-      "close_modal": "Fechar",
-      "link_messages": {
-        "new_window": "Abrirá numa nova janela.",
-        "external": "Abrirá uma página externa.",
-        "new_window_and_external": "Abrirá uma página externa numa nova janela."
-      },
-      "refresh_page": "escolher uma seleção resulta em uma atualização de página inteira"
+      "close_modal": "Fechar (Esc)"
     },
     "meta": {
       "tags": "Marcado \"{{ tags }}\"",
@@ -20,8 +14,8 @@
       "link": "Voltar à loja"
     },
     "pagination": {
-      "previous": "Página anterior",
-      "next": "Próxima página",
+      "previous": "Anterior",
+      "next": "Seguinte",
       "current_page": "Página {{ current }} de {{ total }}"
     },
     "password_page": {
@@ -47,8 +41,7 @@
       }
     },
     "search": {
-      "no_results_html": "Por favor, tente um termo de pesquisa diferente ou volte para a <a href=\"\/\">página inicial<\/a>.",
-      "empty_search_message": "O campo de pesquisa não pode estar vazio",
+      "no_results_html": "A sua pesquisa por \"{{ terms }}\" não teve resultados.",
       "results_with_count": {
         "one": "{{ count }} resultado para \"{{ terms }}\"",
         "other": "{{ count }} resultados para \"{{ terms }}\""
@@ -56,11 +49,7 @@
       "title": "Pesquise no nosso site",
       "placeholder": "Pesquisar",
       "submit": "Enviar",
-      "close": "Fechar pesquisa",
-      "heading": {
-        "one": "Resultado da pesquisa",
-        "other": "Procurar Resultados"
-      }
+      "close": "Fechar pesquisa"
     },
     "newsletter_form": {
       "newsletter_email": "Assine nossa newsletter",
@@ -71,12 +60,6 @@
     "filters": {
       "show_more": "Mostrar mais",
       "show_less": "Mostrar menos"
-    },
-    "payment": {
-      "method": "Formas de pagamento"
-    },
-    "currency": {
-      "dropdown_label": "Moeda"
     }
   },
   "sections": {
@@ -84,33 +67,25 @@
       "next_slide": "Próximo slide",
       "previous_slide": "Slide anterior",
       "pause_slideshow": "Pausar slideshow",
-      "rotate_slideshow": "Reproduzir slideshow",
-      "load_slide": "Abrir slide {{ slide_number }}",
-      "navigation_instructions": "Utilize as setas esquerda\/direita para navegar pelo slideshow, ou deslize para a esquerda\/direita se estiver usando um dispositivo móvel"
-    },
-    "featured_product": {
-      "title": "Produto em destaque",
-      "gallery_thumbnail_alt": "Carregar imagem no visualizador da galeria, {{ imageAlt }}"
+      "play_slideshow": "Reproduzir slideshow",
+      "play_video": "Reproduzir vídeo",
+      "close_video": "Fechar vídeo"
     },
     "map": {
       "address_error": "Não é possível localizar o endereço",
       "address_no_results": "Nenhum resultado para este endereço",
       "address_query_limit_html": "Você excedeu a cota de uso da API do Google. Considere a atualização para um <a href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\">Plano Premium<\/a>.",
-      "auth_error_html": "Ocorreu um problema ao autenticar sua conta do Google Maps.",
-      "section_heading": "Localização"
+      "auth_error_html": "Ocorreu um problema ao autenticar sua conta do Google Maps."
     }
   },
   "blogs": {
     "article": {
       "view_all": "Ver tudo",
-      "view_all_blogs": "Ver todos os artigos",
       "all_topics": "Todos os tópicos",
       "by_author": "por {{ author }}",
       "posted_in": "Postado em",
       "read_more": "Saiba mais",
-      "read_more_title": "Saiba mais: {{ title }}",
-      "back_to_blog": "Voltar para {{ title }}",
-      "tags": "Tag"
+      "back_to_blog": "Voltar para {{ title }}"
     },
     "comments": {
       "title": "Deixe um comentário",
@@ -121,7 +96,6 @@
       "moderated": "Os comentários devem ser aprovados antes de serem publicados",
       "success_moderated": "Seu comentário foi postado com sucesso. Nós o publicaremos em alguns instantes, já que o nosso blog é moderado.",
       "success": "Seu comentário foi postado com sucesso! Obrigado!",
-      "unapproved": "O endereço de e-mail fornecido não está aprovado para postar comentários.",
       "comments_with_count": {
         "one": "{{ count }} comentário",
         "other": "{{ count }} comentários"
@@ -135,10 +109,7 @@
       "remove": "Remover",
       "subtotal": "Subtotal",
       "savings": "Você está economizando",
-      "taxes_and_shipping_at_checkout": "Impostos e frete calculados no checkout",
-      "taxes_and_shipping_policy_at_checkout_html": "Impostos e <a href=\"{{ link }}\">frete<\/a> calculados no checkout",
-      "taxes_included_but_shipping_at_checkout": "Imposto incluído e frete calculado no check-out",
-      "taxes_included_and_shipping_policy_html": "Taxas incluídas. <a href=\"{{ link }}\">Envio<\/a> calculado no check-out.",
+      "shipping_at_checkout": "Frete e impostos calculados no checkout",
       "update": "Atualizar",
       "checkout": "Finalizar compra",
       "empty": "Seu carrinho está vazio no momento.",
@@ -157,16 +128,14 @@
   "collections": {
     "general": {
       "view_all": "Ver tudo",
-      "view_all_label": "Ver todos os produtos da coleção {{ collection_name }}",
       "no_matches": "Desculpe, não há produtos nesta coleção",
       "items_with_count": {
         "one": "{{ count }} produto",
         "other": "{{ count }} produtos"
-      },
-      "collection_label": "Coleção"
+      }
     },
     "sorting": {
-      "title": "Ordenar por",
+      "title": "Ordenar",
       "featured": "Em destaque",
       "best_selling": "Mais vendidos",
       "az": "Ordem alfabética, A–Z",
@@ -177,7 +146,7 @@
       "date_ascending": "Data, mais antiga primeiro"
     },
     "filters": {
-      "title_tags": "Filtrar por",
+      "title_tags": "Filtrar",
       "all_tags": "Todos os produtos"
     }
   },
@@ -188,8 +157,7 @@
       "phone": "Número de telefone",
       "message": "Mensagem",
       "submit": "Enviar",
-      "post_success": "Obrigado por entrar em contato conosco. Retornaremos o mais rápido possível.",
-      "error_heading": "Por favor, ajuste o seguinte:"
+      "post_success": "Obrigado por entrar em contato conosco. Retornaremos o mais rápido possível."
     }
   },
   "customer": {
@@ -307,9 +275,9 @@
   "layout": {
     "navigation": {
       "search": "Pesquisar",
+      "toggle": "expandir\/colapsar",
       "expand": "expandir",
-      "collapse": "colapsar",
-      "menu": "Menu"
+      "collapse": "colapsar"
     },
     "cart": {
       "title": "Carrinho",
@@ -334,21 +302,15 @@
       "sold_out": "Esgotado",
       "unavailable": "Indisponível",
       "on_sale": "Em promoção",
-      "sale_price": "Preço promocional",
       "quantity": "Quantidade",
       "add_to_cart": "Adicionar ao carrinho",
-      "back_to_collection": "Voltar para {{ title }}",
-      "vendor": "Fornecedor",
-      "quantity_minimum_message": "Quantidade deve ser 1 ou mais",
-      "include_taxes": "Taxas incluídas.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Envio<\/a> calculado no check-out."
+      "back_to_collection": "Voltar para {{ title }}"
     }
   },
   "gift_cards": {
     "issued": {
       "title_html": "Aqui está o seu cartão-presente de {{ value }} para {{ shop }}!",
       "subtext": "Seu cartão-presente",
-      "gift_card_code": "código do cartão de presente",
       "disabled": "Desativado",
       "expired": "Expirado em {{ expiry }}",
       "active": "Expira em {{ expiry }}",
@@ -356,8 +318,7 @@
       "shop_link": "Comece a comprar",
       "print": "Imprimir este cartão-presente",
       "remaining_html": "{{ balance }} restante(s)",
-      "add_to_apple_wallet": "Adicionar ao Apple Wallet",
-      "qr_image_alt": "QR code - digitalizar para resgatar cartão de presente"
+      "add_to_apple_wallet": "Adicionar ao Apple Wallet"
     }
   },
   "date_formats": {

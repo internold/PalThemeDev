@@ -28,7 +28,7 @@
       {% else %}
         <div class="image-bar__item">
       {% endif %}
-      <div class="image-bar__content{% if block.settings.cta_label != blank or block.settings.link != blank %} image-bar__overlay{% endif %}">
+      <div class="image-bar__content{% if block.settings.cta_label != blank %} image-bar__overlay{% endif %}">
         {% if block.settings.image == blank %}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
@@ -57,247 +57,101 @@
   {% include 'no-blocks' %}
 {% endif %}
 
-
-
 {% schema %}
-{
-  "name": {
-    "de": "Galerie",
-    "en": "Gallery",
-    "es": "Galería",
-    "fr": "Galerie",
-    "it": "Galleria",
-    "ja": "ギャラリー",
-    "pt-BR": "Galeria"
-  },
-  "class": "index-section index-section--flush",
-  "max_blocks": 4,
-  "settings": [
-    {
-      "type": "select",
-      "id": "section_height",
-      "label": {
-        "de": "Bereichs-Höhe",
-        "en": "Section height",
-        "es": "Altura de la sección",
-        "fr": "Hauteur de la section",
-        "it": "Altezza sezione",
-        "ja": "セクションの高さ",
-        "pt-BR": "Altura da seção"
-      },
-      "default": "medium",
-      "options": [
-        {
-          "label": {
-            "de": "Extra klein",
-            "en": "Extra Small",
-            "es": "Extra pequeña",
-            "fr": "Très petite",
-            "it": "Molto piccola",
-            "ja": "極小",
-            "pt-BR": "Muito pequeno"
+  {
+    "name": "Gallery",
+    "class": "index-section",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "select",
+        "id": "section_height",
+        "label": "Section height",
+        "default": "medium",
+        "options": [
+          {
+            "label": "Extra Small",
+            "value": "x-small"
           },
-          "value": "x-small"
-        },
-        {
-          "label": {
-            "de": "Klein",
-            "en": "Small",
-            "es": "Pequeña",
-            "fr": "Petite",
-            "it": "Piccolo",
-            "ja": "小",
-            "pt-BR": "Pequeno"
+          {
+            "label": "Small",
+            "value": "small"
           },
-          "value": "small"
-        },
-        {
-          "label": {
-            "de": "Mittel",
-            "en": "Medium",
-            "es": "Mediana",
-            "fr": "Moyenne",
-            "it": "Medio",
-            "ja": "中",
-            "pt-BR": "Médio"
+          {
+            "label": "Medium",
+            "value": "medium"
           },
-          "value": "medium"
-        },
-        {
-          "label": {
-            "de": "Groß",
-            "en": "Large",
-            "es": "Grande",
-            "fr": "Grande",
-            "it": "Grande",
-            "ja": "大",
-            "pt-BR": "Grande"
+          {
+            "label": "Large",
+            "value": "large"
           },
-          "value": "large"
-        },
-        {
-          "label": {
-            "de": "Extra groß",
-            "en": "Extra Large",
-            "es": "Extra grande",
-            "fr": "Très grande",
-            "it": "Molto grande",
-            "ja": "特大",
-            "pt-BR": "Muito grande"
-          },
-          "value": "x-large"
-        }
-      ]
-    }
-  ],
-  "blocks": [
-    {
-      "type": "image",
-      "name": {
-        "de": "Foto",
-        "en": "Image",
-        "es": "Imagen",
-        "fr": "Image",
-        "it": "Immagine",
-        "ja": "画像",
-        "pt-BR": "Imagem"
-      },
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": {
-            "de": "Foto",
-            "en": "Image",
-            "es": "Imagen",
-            "fr": "Image",
-            "it": "Immagine",
-            "ja": "画像",
-            "pt-BR": "Imagem"
+          {
+            "label": "Extra Large",
+            "value": "x-large"
           }
-        },
-        {
-          "type": "select",
-          "id": "alignment",
-          "label": {
-            "de": "Fotoausrichtung",
-            "en": "Image alignment",
-            "es": "Alineación de imagen",
-            "fr": "Alignement de l'image",
-            "it": "Allineamento immagine",
-            "ja": "画像アラインメント",
-            "pt-BR": "Alinhamento da imagem"
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
           },
-          "default": "center",
-          "options": [
-            {
-              "value": "top",
-              "label": {
-                "de": "Oben",
-                "en": "Top",
-                "es": "Superior",
-                "fr": "Haut",
-                "it": "Alto",
-                "ja": "上",
-                "pt-BR": "Acima"
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Image alignment",
+            "default": "center",
+            "options": [
+              {
+                "value": "top",
+                "label": "Top"
+              },
+              {
+                "value": "center",
+                "label": "Middle"
+              },
+              {
+                "value": "bottom",
+                "label": "Bottom"
               }
-            },
-            {
-              "value": "center",
-              "label": {
-                "de": "Mitte",
-                "en": "Middle",
-                "es": "Centrada",
-                "fr": "Milieu",
-                "it": "Centrale",
-                "ja": "中央",
-                "pt-BR": "Meio"
-              }
-            },
-            {
-              "value": "bottom",
-              "label": {
-                "de": "Unten",
-                "en": "Bottom",
-                "es": "Inferior",
-                "fr": "Bas",
-                "it": "Basso",
-                "ja": "下",
-                "pt-BR": "Abaixo"
-              }
-            }
-          ]
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": {
-            "de": "Link",
-            "en": "Link",
-            "es": "Enlace",
-            "fr": "Lien",
-            "it": "Link",
-            "ja": "リンク",
-            "pt-BR": "Link"
+            ]
           },
-          "info": {
-            "de": "Optional",
-            "en": "Optional",
-            "es": "Opcional",
-            "fr": "Facultatif",
-            "it": "Facoltativo",
-            "ja": "選択させる",
-            "pt-BR": "Opcional"
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link",
+            "info": "Optional"
+          },
+          {
+            "type": "text",
+            "id": "cta_label",
+            "label": "Caption"
           }
-        },
-        {
-          "type": "text",
-          "id": "cta_label",
-          "label": {
-            "de": "Unterschrift",
-            "en": "Caption",
-            "es": "Leyenda",
-            "fr": "Légende",
-            "it": "Didascalia",
-            "ja": "キャプション",
-            "pt-BR": "Legenda"
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Gallery",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
           }
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": {
-        "de": "Galerie",
-        "en": "Gallery",
-        "es": "Galería",
-        "fr": "Galerie",
-        "it": "Galleria",
-        "ja": "ギャラリー",
-        "pt-BR": "Galeria"
-      },
-      "category": {
-        "de": "Foto",
-        "en": "Image",
-        "es": "Imagen",
-        "fr": "Image",
-        "it": "Immagine",
-        "ja": "画像",
-        "pt-BR": "Imagem"
-      },
-      "blocks": [
-        {
-          "type": "image"
-        },
-        {
-          "type": "image"
-        },
-        {
-          "type": "image"
-        }
-      ]
-    }
-  ]
-}
+        ]
+      }
+    ]
+  }
 {% endschema %}
